@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Oct 11, 2013 at 09:06 AM
+-- Generation Time: Oct 15, 2013 at 10:45 PM
 -- Server version: 5.6.12-log
 -- PHP Version: 5.4.16
 
@@ -39,36 +39,27 @@ CREATE TABLE IF NOT EXISTS `answers` (
 --
 
 INSERT INTO `answers` (`u_id`, `q_id`, `opt_id`) VALUES
-(1, 1, 2),
-(1, 2, 1),
-(1, 1, 4),
-(1, 2, 3),
-(1, 2, 3),
-(1, 1, 3),
-(1, 1, 3),
-(1, 1, 3);
-
--- --------------------------------------------------------
-
---
--- Table structure for table `options`
---
-
-CREATE TABLE IF NOT EXISTS `options` (
-  `opt_id` int(11) NOT NULL AUTO_INCREMENT,
-  `opt_title` varchar(500) NOT NULL,
-  PRIMARY KEY (`opt_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
-
---
--- Dumping data for table `options`
---
-
-INSERT INTO `options` (`opt_id`, `opt_title`) VALUES
-(1, 'Good'),
-(2, 'Very Good'),
-(3, 'Bad'),
-(4, 'Very Bad');
+(123, 1, 1),
+(123, 2, 2),
+(123, 1, 0),
+(123, 2, 0),
+(123, 1, 1),
+(123, 2, 0),
+(123, 1, 1),
+(123, 2, 2),
+(123, 1, 1),
+(123, 2, 2),
+(123, 2, 2),
+(123, 1, 1),
+(123, 1, 1),
+(123, 2, 2),
+(123, 1, 1),
+(123, 1, 1),
+(123, 2, 2),
+(123, 1, 0),
+(123, 2, 2),
+(123, 1, 1),
+(123, 2, 2);
 
 -- --------------------------------------------------------
 
@@ -77,19 +68,19 @@ INSERT INTO `options` (`opt_id`, `opt_title`) VALUES
 --
 
 CREATE TABLE IF NOT EXISTS `questions` (
-  `q_id` int(11) NOT NULL AUTO_INCREMENT,
-  `q_title` varchar(500) NOT NULL,
-  `q_options` varchar(500) NOT NULL,
-  PRIMARY KEY (`q_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `title` varchar(500) NOT NULL,
+  `options` text NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=27 ;
 
 --
 -- Dumping data for table `questions`
 --
 
-INSERT INTO `questions` (`q_id`, `q_title`, `q_options`) VALUES
-(1, 'What kind of person is Andy?', '1,2,3,4'),
-(2, 'Smoking is?', '1,3');
+INSERT INTO `questions` (`id`, `title`, `options`) VALUES
+(1, 'What kind of person is Andy?', '["Sick","Asshole"]'),
+(2, 'Smoking is?', '["wow","Hmm","DJ & C"]');
 
 -- --------------------------------------------------------
 
@@ -98,19 +89,26 @@ INSERT INTO `questions` (`q_id`, `q_title`, `q_options`) VALUES
 --
 
 CREATE TABLE IF NOT EXISTS `users` (
-  `u_id` int(11) NOT NULL,
-  `f_name` varchar(100) NOT NULL,
-  `l_name` varchar(100) NOT NULL,
-  PRIMARY KEY (`u_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `id` int(100) NOT NULL AUTO_INCREMENT,
+  `fbid` varchar(100) NOT NULL,
+  `name` text NOT NULL,
+  `first_name` text NOT NULL,
+  `last_name` text NOT NULL,
+  `link` text NOT NULL,
+  `username` text NOT NULL,
+  `gender` text NOT NULL,
+  `locale` text NOT NULL,
+  `updated_time` text NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
 
 --
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`u_id`, `f_name`, `l_name`) VALUES
-(1, 'Bhavesh', 'Bhide'),
-(2, 'Anand', 'Addhenki');
+INSERT INTO `users` (`id`, `fbid`, `name`, `first_name`, `last_name`, `link`, `username`, `gender`, `locale`, `updated_time`) VALUES
+(1, '12312412412', 'Bhavesh Bhide', 'Bhavesh', 'Bhide', 'http://www.facebook.com/bhavesh.bhide', 'bhavesh.bhide', 'Male', 'en_US', '2013-10-13T08:22:03+0000'),
+(2, '1163687666', 'Bhavesh Bhide', 'Bhavesh', 'Bhide', 'http://www.facebook.com/bhavesh.bhide', 'bhavesh.bhide', 'male', 'en_US', '2013-10-13T08:22:03+0000');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
