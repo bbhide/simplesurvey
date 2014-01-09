@@ -1,7 +1,7 @@
 <?php
 include "inc/header.php";
 if(!isset($_SESSION['username'])) {
-	header('location:login.php');
+	@header('location:login.php');
 }
 ?>
 <div class="sixteen columns">
